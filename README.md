@@ -14,7 +14,7 @@
 ## ✨ Features
 
 - 🌊 **Lakeview**: Provides short and concise summarisation for agent steps
-- 🤖 **Multi-LLM Support**: Works with OpenAI, Anthropic, Doubao, Azure and OpenRouter APIs
+- 🤖 **Multi-LLM Support**: Works with OpenAI, Anthropic, Doubao, Azure, OpenRouter and Novita APIs
 - 🛠️ **Rich Tool Ecosystem**: File editing, bash execution, sequential thinking, and more
 - 🎯 **Interactive Mode**: Conversational interface for iterative development
 - 📊 **Trajectory Recording**: Detailed logging of all agent actions for debugging and analysis
@@ -53,6 +53,9 @@ export DOUBAO_API_BASE_URL="your-model-provider-base-url"
 # For OpenRouter
 export OPENROUTER_API_KEY="your-openrouter-api-key"
 
+# For Novita
+export NOVITA_API_KEY="your-novita-api-key"
+
 # Optional: For OpenRouter rankings
 export OPENROUTER_SITE_URL="https://your-site.com"
 export OPENROUTER_SITE_NAME="Your App Name"
@@ -68,6 +71,9 @@ trae-cli run "Create a hello world Python script"
 
 # Run with Doubao
 trae-cli run "Create a hello world Python script" --provider doubao --model doubao-seed-1.6
+
+# Run with Novita
+trae-cli run "Create a hello world Python script" --provider novita --model your-model-name
 ```
 
 ## 📖 Usage
@@ -84,6 +90,9 @@ trae-cli run "Create a Python script that calculates fibonacci numbers"
 
 # With specific provider and model
 trae-cli run "Fix the bug in main.py" --provider anthropic --model claude-sonnet-4-20250514
+
+# With Novita provider
+trae-cli run "Fix the bug in main.py" --provider novita --model your-model-name
 
 # Using OpenRouter with any supported model
 trae-cli run "Optimize this code" --provider openrouter --model "openai/gpt-4o"
@@ -226,6 +235,7 @@ trae-cli run "Comment this code" --provider ollama --model "qwen3"
 - `OPENAI_API_KEY` - OpenAI API key
 - `ANTHROPIC_API_KEY` - Anthropic API key
 - `OPENROUTER_API_KEY` - OpenRouter API key
+- `NOVITA_API_KEY` - Novita API key
 - `OPENROUTER_SITE_URL` - (Optional) Your site URL for OpenRouter rankings
 - `OPENROUTER_SITE_NAME` - (Optional) Your site name for OpenRouter rankings
 
@@ -300,6 +310,7 @@ For more details, see [TRAJECTORY_RECORDING.md](TRAJECTORY_RECORDING.md).
   - OpenAI API key (for OpenAI models)
   - Anthropic API key (for Anthropic models)
   - OpenRouter API key (for OpenRouter models)
+  - Novita API key (for Novita models)
 
 ## 🔧 Troubleshooting
 
@@ -317,6 +328,7 @@ PYTHONPATH=. trae-cli run "your task"
 echo $OPENAI_API_KEY
 echo $ANTHROPIC_API_KEY
 echo $OPENROUTER_API_KEY
+echo $NOVITA_API_KEY
 
 # Check configuration
 trae-cli show-config
